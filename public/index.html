@@ -1,0 +1,46 @@
+<!doctype>
+<html>
+
+<head>
+    <title>Chat app</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Rambla" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="app.js"></script>
+
+</head>
+
+<body ng-app="ChatApp">
+    <div id="header">
+        <h1>WeChat</h1>
+        <img src="https://cdn.dribbble.com/users/253392/screenshots/3008309/3.gif">
+    </div>
+
+    <main>
+
+        <!-- display texts from API -->
+        <div id="messageBox">
+            <ul ng-controller="ChatTextController">
+                <li ng-repeat="text in newChats" id="message">
+                    <p id="from">{{ text.from }} <span id="text">{{ text.message }}</span></p> 
+            </ul>
+        </div>
+
+
+        <!-- send texts to API -->
+    <footer>
+        <div id="textBox">
+            <section ng-controller="TextSentController">
+                <input type="text" ng-model="message" placeholder="text...">
+                <button ng-click="send()" id="send">Send</button>
+            </section>
+
+        </div>
+    </footer>
+    </main>
+
+</body>
+
+</html>
